@@ -18,7 +18,7 @@
       --muted: #6e6862;
       --accent: #2c4c3b; /* Deep forest green */
       --accent-dark: #1a3024;
-      --accent-soft: rgba(44, 76, 59, 0.10);
+      --accent-soft: #f0f4f2; /* Soft pale green for services */
       --border: rgba(31, 31, 31, 0.10);
       --shadow: 0 18px 50px rgba(45, 31, 27, 0.08);
       --radius: 24px;
@@ -91,7 +91,6 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       position: relative;
-      /* Smooth pop transition */
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
     }
 
@@ -165,14 +164,28 @@
       margin-top: 40px;
     }
 
-    .mini-card { padding: 32px; }
-    .mini-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+    /* --- Services (Soft Green) --- */
+    .mini-card { 
+      padding: 32px; 
+      background: var(--accent-soft); 
+      border-color: rgba(44, 76, 59, 0.08);
+    }
+    .mini-card h3 { font-size: 1.5rem; margin-bottom: 12px; color: var(--accent-dark); }
 
-    /* --- Contact Form --- */
+    /* --- Contact Form (Solid Forest Green Anchor) --- */
     .contact-box {
       max-width: 750px;
       margin: 0 auto;
-      padding: 50px;
+      padding: 60px;
+      background: var(--accent);
+      color: white;
+      border: none;
+    }
+
+    .contact-box .section-title, 
+    .contact-box p, 
+    .contact-box .form-group label {
+      color: white;
     }
 
     .contact-form {
@@ -192,17 +205,28 @@
     .form-group input, .form-group textarea {
       width: 100%;
       padding: 16px;
-      border: 1px solid var(--border);
+      border: none;
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.95); /* Clean white inputs against dark green */
       font-family: inherit;
       font-size: 1rem;
-      transition: border-color 0.3s ease;
+      transition: box-shadow 0.3s ease;
     }
 
     .form-group input:focus, .form-group textarea:focus {
       outline: none;
-      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Reverse button style for dark background */
+    .contact-box .btn-primary {
+      background: white;
+      color: var(--accent);
+    }
+
+    .contact-box .btn-primary:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
     }
 
     /* --- Footer --- */
@@ -260,7 +284,7 @@
         </div>
 
         <div class="card hero-side" style="overflow:hidden; padding:15px;">
-          <img src="IMG_3803.jpeg" alt="Wedding Setup" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+          <img src="IMG_3803.jpeg" alt="Wedding Ceremony Setup" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
         </div>
       </div>
     </section>
@@ -272,7 +296,7 @@
           Hi, I’m Ashika. Drawing from my background in corporate operations, I specialize in bringing high-level structure and calm execution to wedding days. I believe every couple deserves to be a guest at their own celebration.
         </p>
         <div style="width: 280px; height: 320px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);">
-          <img src="job_pic.jpg" alt="Ashika" style="width:100%; height:100%; object-fit:cover;">
+          <img src="job_pic.jpg" alt="Ashika Wedding Coordinator" style="width:100%; height:100%; object-fit:cover;">
         </div>
       </div>
     </section>
@@ -282,11 +306,11 @@
       <div class="grid-3">
         <div class="card mini-card">
           <h3>The Master Plan</h3>
-          <p>Turning your planning into a precise, minute-by-minute timeline for all vendors.</p>
+          <p>Turning your months of planning into a precise, minute-by-minute timeline for all vendors.</p>
         </div>
         <div class="card mini-card">
           <h3>Coordination</h3>
-          <p>The primary point of contact for all vendors, artists, and logistics on the day.</p>
+          <p>The primary point of contact for all vendors, artists, and logistics on the wedding day.</p>
         </div>
         <div class="card mini-card">
           <h3>The Details</h3>
@@ -297,13 +321,13 @@
 
     <section id="contact">
       <div class="card contact-box">
-        <h2 class="section-title" style="text-align:center;">Let’s Talk</h2>
-        <p style="text-align:center; color:var(--muted); margin-bottom: 20px;">Currently booking for 2026 weddings in NYC and NJ.</p>
+        <h2 class="section-title" style="text-align:center;">Let’s Talk About Your Day</h2>
+        <p style="text-align:center; margin-bottom: 20px;">Currently booking for 2026 weddings in NYC and NJ.</p>
 
         <form action="https://formspree.io/f/xbdzeyka" method="POST" class="contact-form">
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" name="name" required placeholder="Your Name">
+            <input type="text" name="name" required placeholder="Your First & Last Name">
           </div>
           <div class="form-group">
             <label>Email Address</label>
@@ -311,7 +335,7 @@
           </div>
           <div class="form-group">
             <label>Wedding Date & Location</label>
-            <input type="text" name="date" placeholder="e.g. June 12, 2026 - NYC">
+            <input type="text" name="date" placeholder="e.g. June 12, 2026 - Central Park NYC">
           </div>
           <div class="form-group">
             <label>Message</label>
