@@ -16,7 +16,7 @@
       --panel: rgba(255, 255, 255, 0.78);
       --text: #1f1f1f;
       --muted: #6e6862;
-      --accent: #2c4c3b;
+      --accent: #2c4c3b; /* Deep forest green */
       --accent-dark: #1a3024;
       --accent-soft: #f0f4f2; 
       --border: rgba(31, 31, 31, 0.10);
@@ -67,7 +67,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 0; /* Tighter nav */
+      padding: 16px 0;
     }
 
     .brand { font-weight: 700; font-size: 1.3rem; }
@@ -93,35 +93,22 @@
     }
 
     .card:hover {
-      transform: translateY(-5px) scale(1.01);
+      transform: translateY(-8px) scale(1.01);
       box-shadow: 0 30px 60px rgba(44, 76, 59, 0.12);
       border-color: var(--accent);
-    }
-
-    /* --- Section Spacing (The Tighter Fix) --- */
-    section { padding: 32px 0; } /* Standard section vertical spacing */
-    
-    .section-title { 
-      font-size: 2.35rem; 
-      margin-bottom: 8px; /* TIGHTENED: Header is now glued to the content */
-    }
-    
-    .section-text-top { 
-      font-size: 1.05rem; 
-      color: var(--muted); 
-      max-width: 72ch; 
-      margin: 0 auto 12px; /* Small gap before cards */
+      z-index: 10;
     }
 
     /* --- Hero Section --- */
-    .hero { padding: 24px 0 32px; } /* Brought closer to header */
+    .hero { padding: 60px 0; }
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 20px;
+      gap: 32px;
+      align-items: stretch;
     }
 
-    .hero-copy { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+    .hero-copy { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
     
     .eyebrow {
       display: inline-block;
@@ -129,90 +116,142 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 8px;
+      margin-bottom: 16px;
       font-weight: 700;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
       line-height: 0.94;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .subhead {
-      font-size: 1.08rem;
+      font-size: 1.1rem;
       color: var(--muted);
       max-width: 44ch;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
 
     .rate-pill {
       display: inline-flex;
-      padding: 8px 16px;
+      padding: 10px 18px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent-dark);
       font-weight: 700;
-      font-size: 0.85rem;
-      margin-bottom: 24px;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
       width: fit-content;
     }
 
     /* --- Buttons --- */
     .btn {
       display: inline-flex;
-      padding: 14px 26px;
+      padding: 15px 28px;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 1rem;
       transition: all 0.3s ease;
       cursor: pointer;
       border: 1px solid transparent;
     }
 
     .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
     .btn-secondary { border-color: rgba(31,31,31,0.12); background: transparent; }
+    .btn-secondary:hover { border-color: var(--text); }
 
-    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* --- Grids --- */
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 12px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 12px; }
+    /* --- Sections General Spacing --- */
+    section { padding: 60px 0; }
+    
+    .section-title { 
+      font-size: 2.5rem; 
+      margin-bottom: 16px; 
+    }
+    
+    .section-text { 
+      font-size: 1.05rem; 
+      color: var(--muted); 
+      max-width: 72ch; 
+      margin: 0 auto 32px; /* Centered with clear bottom margin */
+    }
 
+    .grid-3, .grid-2 {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    /* --- Card Interior Spacing --- */
     .mini-card { 
-      padding: 28px; 
+      padding: 32px; 
       background: var(--accent-soft); 
       border-color: rgba(44, 76, 59, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .mini-card h3 { font-size: 1.35rem; color: var(--accent-dark); margin-bottom: 8px; }
+    .mini-card h3 { font-size: 1.4rem; color: var(--accent-dark); }
+    .mini-card p { margin: 0; color: var(--muted); }
 
-    /* --- Contact Form --- */
+    /* --- Contact Form (The Final Anchor) --- */
     .contact-box {
-      max-width: 750px;
-      margin: 12px auto 0;
-      padding: 40px;
+      max-width: 800px;
+      margin: 20px auto 0;
+      padding: 60px;
       background: var(--accent);
       color: white;
       border: none;
     }
 
-    .contact-form { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
-    .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: white; }
+    .contact-box .section-title, 
+    .contact-box p, 
+    .contact-box .form-group label {
+      color: white;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
     .form-group input, .form-group textarea {
       width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      background: white;
+      padding: 16px;
       border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.98);
       font-family: inherit;
+      font-size: 1rem;
     }
 
     .contact-box .btn-primary { background: white; color: var(--accent); width: 100%; }
+    .contact-box .btn-primary:hover { background: #f0f0f0; }
+
+    .contact-line {
+      margin-top: 30px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      text-align: center;
+    }
 
     /* --- Footer --- */
     footer {
-      padding: 32px 0 60px;
+      padding: 40px 0 80px;
       text-align: center;
       color: var(--muted);
       font-size: 0.95rem;
@@ -221,17 +260,18 @@
     .inclusivity-text {
       font-family: "Cormorant Garamond", serif;
       font-style: italic;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--accent);
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     @media (max-width: 840px) {
       .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
-      .hero-copy, .contact-box { padding: 24px; }
+      .hero-copy, .contact-box { padding: 32px; }
+      .hero { padding: 40px 0; }
+      section { padding: 40px 0; }
       .nav { flex-direction: column; align-items: flex-start; }
-      section { padding: 24px 0; }
     }
   </style>
 </head>
@@ -251,6 +291,7 @@
   </header>
 
   <main>
+    
     <section class="hero wrap">
       <div class="hero-grid">
         <div class="card hero-copy">
@@ -266,29 +307,29 @@
           </div>
         </div>
 
-        <div class="card hero-side" style="overflow:hidden; padding:15px;">
-          <img src="IMG_3803.jpeg" alt="Wedding Setup" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+        <div class="card hero-side" style="overflow:hidden; padding:18px;">
+          <img src="IMG_3803.jpeg" alt="Outdoor wedding ceremony setup" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
         </div>
       </div>
     </section>
 
     <section id="about" class="wrap">
       <h2 class="section-title">About</h2>
-      <div class="card" style="padding: 32px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+      <div style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 300px;">
-          <p style="margin: 0; font-size: 1.05rem; color: var(--text);">
+          <p class="section-text" style="margin: 0; text-align: left;">
             Hi, I’m Ashika. I bring a unique blend of global perspective and New York energy to wedding coordination. My journey into this industry started with a deeply personal experience: planning my own wedding. While I found the planning process incredibly rewarding, on the actual day, much of my vision was not translated the way I had hoped—a feeling I never want another bride to experience. Drawing from my background in corporate strategy and operations, I now specialize in bringing high-level structure, calm communication, and flawless execution to complex wedding days.
           </p>
         </div>
         <div style="width: 250px; height: 320px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); flex-shrink: 0;">
-          <img src="job_pic.jpg" alt="Ashika Ramesh" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%;">
+          <img src="job_pic.jpg" alt="Ashika Ramesh" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;">
         </div>
       </div>
     </section>
 
-    <section id="services" class="wrap">
+    <section id="services" class="wrap" style="text-align: center;">
       <h2 class="section-title">What I Handle</h2>
-      <p class="section-text-top">
+      <p class="section-text">
         I step in as your day-of coordinator to manage the moving pieces and keep everything flowing perfectly.
       </p>
       <div class="grid-3">
@@ -307,24 +348,30 @@
       </div>
     </section>
 
-    <section id="whyme" class="wrap">
+    <section id="whyme" class="wrap" style="text-align: center; padding-top: 20px;">
       <h2 class="section-title">Why Me</h2>
       <div class="grid-2">
         <div class="card mini-card">
           <h3>Structured, calm, proactive</h3>
-          <p>I naturally gravitate toward systems, trackers, and operational detail. I translate your vision into a plan that works flawlessly in real life.</p>
+          <p>
+            I naturally gravitate toward systems, trackers, and operational detail. I translate your vision into a
+            plan that works flawlessly in real life.
+          </p>
         </div>
         <div class="card mini-card">
           <h3>Personal and personable</h3>
-          <p>I’m an extrovert and a creative soul, which means I’m comfortable managing people, energy, and logistics without losing warmth and hospitality.</p>
+          <p>
+            I’m an extrovert and a creative soul, which means I’m comfortable managing people, energy, and logistics
+            without losing warmth and hospitality.
+          </p>
         </div>
       </div>
     </section>
 
     <section id="contact" class="wrap">
-      <h2 class="section-title" style="text-align: center;">Let’s Talk About Your Day</h2>
       <div class="card contact-box">
-        <p style="text-align: center; margin: 0 auto 16px; color: white;">
+        <h2 class="section-title" style="text-align: center;">Let’s Talk About Your Day</h2>
+        <p style="text-align: center; margin: 0 auto 16px; opacity: 0.9;">
           I’m currently available for coordination and day-of management in the NYC/NJ area. Fill out the form below to check availability for your date.
         </p>
 
@@ -338,7 +385,7 @@
             <input type="email" name="email" required placeholder="your.email@example.com">
           </div>
           <div class="form-group">
-            <label>Wedding Date & Location</label>
+            <label>Wedding Date & Location (Optional)</label>
             <input type="text" name="date" placeholder="e.g. October 12, 2026 at Brooklyn Botanic Garden">
           </div>
           <div class="form-group">
@@ -347,13 +394,17 @@
           </div>
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
+
+        <div class="contact-line">
+          Available for NYC/NJ weddings
+        </div>
       </div>
     </section>
 
   </main>
 
   <footer class="wrap">
-    <span class="inclusivity-text">Celebrating love of all backgrounds, cultures, faiths, and abilities.</span>
+    <span class="inclusivity-text">Seamless by Ashika is proud to work with couples of all backgrounds, cultures, faiths, and abilities.</span>
     <span>© 2026 Seamless by Ashika. All rights reserved.</span>
   </footer>
 
