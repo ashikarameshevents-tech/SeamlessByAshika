@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashika R. | Wedding Day Coordination</title>
+  <meta name="description" content="Day-of wedding coordination in NYC and NJ. Ashika brings structure, calm, and seamless execution to your special day." />
+  <style>
+    :root{
+      --bg: #fbf8f5;
+      --panel: rgba(255,255,255,0.8);
+      --text: #1f1f1f;
+      --muted: #66605b;
+      --accent: #7b5e57;
+      --accent-dark: #5d4440;
+      --border: rgba(31,31,31,0.10);
+      --shadow: 0 18px 50px rgba(45, 31, 27, 0.08);
+      --radius: 24px;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(123,94,87,0.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(232,214,202,0.75), transparent 24%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .wrap {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(251,248,245,0.75);
+      border-bottom: 1px solid rgba(31,31,31,0.06);
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 88px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 40px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      margin: 0 0 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .subhead {
+      font-size: 1.13rem;
+      color: var(--muted);
+      max-width: 38ch;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(31,31,31,0.12);
+      color: var(--text);
+    }
+
+    .hero-side {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(31,31,31,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    section {
+      padding: 20px 0 8px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 70ch;
+      margin: 0 0 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .mini-card {
+      padding: 24px;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .quote {
+      font-size: 1.08rem;
+      color: var(--text);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      padding: 28px;
+    }
+
+    .contact-line {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 40px 0 60px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 840px) {
+      .hero-grid, .grid-3, .two-col {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding-top: 34px;
+      }
+      .hero-copy, .hero-side {
+        padding: 24px;
+      }
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Ashika R. | Wedding Coordination</div>
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#whyme">Why Me</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card hero-copy">
+          <div class="eyebrow">NYC + NJ Day-of Coordination</div>
+          <h1>Your Vision. My System.</h1>
+          <p class="subhead">
+            I bring structure into your special day so you can stay present, calm, and fully enjoy the celebration.
+          </p>
+          <p class="subhead">
+            Starting at <strong>$3,000 per event</strong>
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Book a Consultation</a>
+            <a class="btn btn-secondary" href="#services">See Services</a>
+          </div>
+        </div>
+
+        <aside class="card hero-side">
+          <div class="stat">
+            <strong>Ashika R. (She/Her)</strong>
+            Based in Brooklyn, New York
+          </div>
+          <div class="stat">
+            <strong>Specialties</strong>
+            Backyard weddings, multicultural weddings
+          </div>
+          <div class="stat">
+            <strong>Favorite Venues</strong>
+            Brooklyn Botanic Garden, Central Park, Celestine
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <p class="section-text">
+        Hi, I’m Ashika. I bring a unique blend of global perspective and New York energy to wedding coordination.
+        With a background in Strategy & Operations at DoorDash, I specialize in bringing high-level structure,
+        calm communication, and seamless execution to complex wedding days.
+      </p>
+      <div class="card mini-card">
+        <p class="quote">
+          “Planning a wedding should be joyful — not overwhelming. I’m here to be your logistical backbone, handling
+          the trackers, timelines, and troubleshooting so you can focus on celebrating.”
+        </p>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Services</h2>
+      <p class="section-text">
+        I step in as your day-of coordinator to manage the moving pieces and keep everything flowing.
+      </p>
+      <div class="grid-3">
+        <div class="card mini-card">
+          <h3>Timeline Management</h3>
+          <p>Build and manage a clear wedding-day timeline so everyone knows where to be and when.</p>
+        </div>
+        <div class="card mini-card">
+          <h3>Vendor Coordination</h3>
+          <p>Keep communication organized with vendors, venues, and family members on the day.</p>
+        </div>
+        <div class="card mini-card">
+          <h3>Real-Time Troubleshooting</h3>
+          <p>Handle surprises calmly and quickly so the day stays smooth and on schedule.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="whyme">
+      <h2 class="section-title">Why Me</h2>
+      <div class="two-col">
+        <div class="card mini-card">
+          <h3>Structured, calm, proactive</h3>
+          <p>
+            I naturally gravitate toward systems, trackers, and operational detail. I translate your vision into a
+            plan that works in real life.
+          </p>
+        </div>
+        <div class="card mini-card">
+          <h3>Personal and personable</h3>
+          <p>
+            I’m an extrovert and creative soul, which means I’m comfortable managing people, energy, and logistics
+            without losing warmth.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Fun Facts</h2>
+      <div class="grid-3">
+        <div class="card mini-card">
+          <h3>Star Sign</h3>
+          <p>Cancer</p>
+        </div>
+        <div class="card mini-card">
+          <h3>Hometown</h3>
+          <p>Bengaluru, India</p>
+        </div>
+        <div class="card mini-card">
+          <h3>Superpower</h3>
+          <p>Proactive and determined — you say it and I make it happen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="card contact-box">
+        <h2 class="section-title">Let’s Connect</h2>
+        <p class="section-text">
+          I’m currently available for coordination and day-of management in the NYC/NJ area.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:your@email.com">Email Me</a>
+          <a class="btn btn-secondary" href="https://instagram.com/yourhandle" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+        <div class="contact-line">
+          <span>Replace your@email.com with your real email</span>
+          <span>Replace yourhandle with your Instagram handle</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © 2026 Ashika R. Wedding Coordination
+  </footer>
+</body>
+</html>
