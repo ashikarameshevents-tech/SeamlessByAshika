@@ -3,37 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashika Ramesh. | Wedding Day Coordination</title>
+  <title>Ashika Ramesh | Wedding Day Coordination</title>
   <meta name="description" content="Day-of wedding coordination in NYC and NJ. Ashika brings structure, calm, and seamless execution to your special day." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg: #fbf8f5;
-      --panel: rgba(255,255,255,0.8);
+      --panel: rgba(255,255,255,0.78);
       --text: #1f1f1f;
-      --muted: #66605b;
+      --muted: #6e6862;
       --accent: #7b5e57;
       --accent-dark: #5d4440;
+      --accent-soft: rgba(123,94,87,0.10);
       --border: rgba(31,31,31,0.10);
       --shadow: 0 18px 50px rgba(45, 31, 27, 0.08);
       --radius: 24px;
       --max: 1100px;
     }
 
-    
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
+      line-height: 1.6;
       background:
         radial-gradient(circle at top left, rgba(123,94,87,0.10), transparent 28%),
-        radial-gradient(circle at top right, rgba(232,214,202,0.75), transparent 24%),
+        radial-gradient(circle at top right, rgba(232,214,202,0.55), transparent 24%),
         var(--bg);
-      line-height: 1.6;
+    }
+
+    h1, h2, h3, .brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
     }
 
     a { color: inherit; text-decoration: none; }
+
     .wrap {
       width: min(100% - 32px, var(--max));
       margin: 0 auto;
@@ -43,7 +55,7 @@
       position: sticky;
       top: 0;
       backdrop-filter: blur(12px);
-      background: rgba(251,248,245,0.75);
+      background: rgba(251,248,245,0.78);
       border-bottom: 1px solid rgba(31,31,31,0.06);
       z-index: 10;
     }
@@ -59,6 +71,7 @@
     .brand {
       font-weight: 700;
       letter-spacing: 0.02em;
+      font-size: 1.1rem;
     }
 
     .navlinks {
@@ -69,13 +82,17 @@
       font-size: 0.95rem;
     }
 
+    .navlinks a:hover {
+      color: var(--text);
+    }
+
     .hero {
       padding: 88px 0 56px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 28px;
       align-items: stretch;
     }
@@ -88,7 +105,7 @@
     }
 
     .hero-copy {
-      padding: 40px;
+      padding: 42px;
     }
 
     .eyebrow {
@@ -102,24 +119,34 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 5vw, 4.8rem);
-      line-height: 0.98;
+      font-size: clamp(3rem, 6vw, 5.3rem);
+      line-height: 0.94;
       margin: 0 0 18px;
       letter-spacing: -0.04em;
     }
 
     .subhead {
-      font-size: 1.13rem;
+      font-size: 1.08rem;
       color: var(--muted);
-      max-width: 38ch;
-      margin-bottom: 28px;
+      max-width: 42ch;
+      margin: 0 0 18px;
+    }
+
+    .rate-pill {
+      display: inline-flex;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-weight: 700;
+      margin: 8px 0 22px;
     }
 
     .cta-row {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 18px;
+      margin-top: 10px;
     }
 
     .btn {
@@ -148,23 +175,25 @@
       color: var(--text);
     }
 
+    .btn-secondary:hover {
+      border-color: rgba(31,31,31,0.24);
+    }
+
     .hero-side {
-      padding: 28px;
-      display: grid;
-      gap: 16px;
+      padding: 18px;
+      overflow: hidden;
     }
 
-    .stat {
-      padding: 18px 20px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(31,31,31,0.08);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.35rem;
-      margin-bottom: 4px;
+    .sketch-wrap {
+      height: 100%;
+      min-height: 420px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f9f4ee 0%, #f4ede6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
     }
 
     section {
@@ -172,15 +201,17 @@
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 2.35rem;
       margin: 0 0 12px;
       letter-spacing: -0.03em;
+      line-height: 1;
     }
 
     .section-text {
       color: var(--muted);
-      max-width: 70ch;
+      max-width: 72ch;
       margin: 0 0 24px;
+      font-size: 1rem;
     }
 
     .grid-3 {
@@ -195,7 +226,8 @@
 
     .mini-card h3 {
       margin: 0 0 10px;
-      font-size: 1.1rem;
+      font-size: 1.35rem;
+      line-height: 1;
     }
 
     .mini-card p {
@@ -217,12 +249,6 @@
       align-items: start;
     }
 
-    .list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
     .contact-box {
       padding: 28px;
     }
@@ -233,6 +259,7 @@
       flex-wrap: wrap;
       margin-top: 16px;
       color: var(--muted);
+      font-size: 0.95rem;
     }
 
     footer {
@@ -245,23 +272,35 @@
       .hero-grid, .grid-3, .two-col {
         grid-template-columns: 1fr;
       }
+
       .hero {
         padding-top: 34px;
       }
+
       .hero-copy, .hero-side {
         padding: 24px;
       }
+
       .nav {
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .navlinks {
+        gap: 12px;
+      }
+
+      h1 {
+        line-height: 0.98;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand">Ashika R. | Wedding Coordination</div>
+      <div class="brand">Ashika Ramesh | Wedding Coordination</div>
       <nav class="navlinks">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -278,29 +317,44 @@
           <div class="eyebrow">NYC + NJ Day-of Coordination</div>
           <h1>Your Vision. My System.</h1>
           <p class="subhead">
-            I bring structure into your special day so you can stay present, calm, and fully enjoy the celebration.
+            I bring structure, calm, and seamless execution to your wedding day so you can stay present and fully enjoy the celebration.
           </p>
-          <p class="subhead">
-            Starting at <strong>$3,000 per event</strong>
-          </p>
+          <div class="rate-pill">Starting at $3,000 per event</div>
           <div class="cta-row">
             <a class="btn btn-primary" href="#contact">Book a Consultation</a>
             <a class="btn btn-secondary" href="#services">See Services</a>
           </div>
         </div>
 
-        <aside class="card hero-side">
-          <div class="stat">
-            <strong>Ashika R. (She/Her)</strong>
-            Based in Brooklyn, New York
-          </div>
-          <div class="stat">
-            <strong>Specialties</strong>
-            Backyard weddings, multicultural weddings
-          </div>
-          <div class="stat">
-            <strong>Favorite Venues</strong>
-            Brooklyn Botanic Garden, Central Park, Celestine
+        <aside class="card hero-side" aria-label="Sketch style wedding illustration">
+          <div class="sketch-wrap">
+            <svg viewBox="0 0 420 420" width="100%" height="100%" role="img" aria-label="Wedding sketch illustration">
+              <rect x="0" y="0" width="420" height="420" rx="28" fill="#faf7f2"></rect>
+
+              <g fill="none" stroke="#7b5e57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M125 295c20-70 55-115 85-115s65 45 85 115"></path>
+                <path d="M145 295h150"></path>
+                <path d="M162 258c12-18 27-27 48-27s36 9 48 27"></path>
+                <path d="M200 180c8-16 17-23 22-23 6 0 14 7 22 23"></path>
+                <path d="M155 162c15-18 33-26 67-26s52 8 67 26"></path>
+                <path d="M177 120c7-10 18-15 45-15s38 5 45 15"></path>
+                <path d="M150 315c28 18 92 18 120 0"></path>
+                <path d="M205 103c-10-18-22-27-38-31"></path>
+                <path d="M225 103c10-18 22-27 38-31"></path>
+                <path d="M182 219c8 10 16 15 28 15s20-5 28-15"></path>
+              </g>
+
+              <g fill="#d8c5b8" opacity="0.9">
+                <circle cx="210" cy="122" r="6"></circle>
+                <circle cx="194" cy="141" r="5"></circle>
+                <circle cx="226" cy="141" r="5"></circle>
+                <circle cx="210" cy="158" r="5"></circle>
+              </g>
+
+              <text x="210" y="360" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#5d4440">
+                sketch-inspired coordination
+              </text>
+            </svg>
           </div>
         </aside>
       </div>
@@ -387,18 +441,17 @@
           I’m currently available for coordination and day-of management in the NYC/NJ area.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:ashikarameshevents@gmail.com.com">Email Me</a>
-          <a class="btn btn-secondary" href="https://instagram.com/yourhandle" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="btn btn-primary" href="mailto:ashikarameshevents@gmail.com">Email Me</a>
         </div>
         <div class="contact-line">
-          <span>Replace ashikarameshevents@gmail.com.com with your real email</span>
+          <span>Available for NYC/NJ weddings</span>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="wrap">
-    © 2026 Ashika Ramesh. Wedding Coordination
+    © 2026 Ashika Ramesh | Wedding Coordination
   </footer>
 </body>
 </html>
