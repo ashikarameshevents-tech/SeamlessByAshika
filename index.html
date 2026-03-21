@@ -19,7 +19,8 @@
       --accent: #2c4c3b; /* Deep forest green */
       --accent-dark: #1a3024;
       --accent-soft: #f0f4f2; 
-      --border: rgba(31, 31, 31, 0.10);
+      --sage-hint: #e9eee6; /* Pale sage hint for card backgrounds */
+      --border: rgba(44, 76, 59, 0.15); /* More defined sage border */
       --shadow: 0 18px 50px rgba(45, 31, 27, 0.08);
       --radius: 24px;
       --max: 1100px;
@@ -85,7 +86,7 @@
     /* --- Interactive Cards --- */
     .card {
       background: var(--panel);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(31, 31, 31, 0.10);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       position: relative;
@@ -93,14 +94,14 @@
     }
 
     .card:hover {
-      transform: translateY(-5px) scale(1.005);
+      transform: translateY(-8px) scale(1.01);
       box-shadow: 0 30px 60px rgba(44, 76, 59, 0.12);
       border-color: var(--accent);
       z-index: 10;
     }
 
-    /* --- Section Spacing Tweak --- */
-    section { padding: 30px 0; text-align: center; } /* Centers all headers and text globally */
+    /* --- Section Spacing --- */
+    section { padding: 30px 0; text-align: center; }
 
     /* --- Hero Section --- */
     .hero { padding: 40px 0 20px; }
@@ -109,7 +110,7 @@
       grid-template-columns: 1.15fr 0.85fr;
       gap: 24px;
       align-items: stretch;
-      text-align: left; /* Keep Hero left-aligned for drama */
+      text-align: left;
     }
 
     .hero-copy { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
@@ -120,7 +121,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       font-weight: 700;
     }
 
@@ -134,7 +135,7 @@
       font-size: 1.1rem;
       color: var(--muted);
       max-width: 44ch;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .rate-pill {
@@ -144,14 +145,14 @@
       background: var(--accent-soft);
       color: var(--accent-dark);
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       margin-bottom: 30px;
       width: fit-content;
     }
 
     .btn {
       display: inline-flex;
-      padding: 14px 26px;
+      padding: 15px 28px;
       border-radius: 999px;
       font-weight: 700;
       font-size: 1rem;
@@ -161,14 +162,14 @@
     }
 
     .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
     .btn-secondary { border-color: rgba(31,31,31,0.12); background: transparent; }
 
     .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
 
     /* --- Section Headers --- */
     .section-title { 
-      font-size: 2.35rem; 
+      font-size: 2.5rem; 
       margin-bottom: 12px;
     }
     
@@ -188,17 +189,31 @@
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .grid-2 { grid-template-columns: repeat(2, 1fr); }
 
-    /* --- Card Interior Spacing --- */
+    /* --- Interior Spacing & Borders --- */
     .mini-card { 
       padding: 32px; 
-      background: var(--accent-soft); 
-      border-color: rgba(44, 76, 59, 0.08);
+      background: var(--sage-hint); 
+      border: 1.5px solid var(--border); /* THE BORDER UPDATE */
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .mini-card h3 { font-size: 1.35rem; color: var(--accent-dark); margin-bottom: 8px; }
 
-    /* --- About Card Customization --- */
+    /* THE EDITORIAL HEADING UPDATE */
+    .mini-card h3 { 
+      font-size: 1.1rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.12em; 
+      color: var(--accent-dark); 
+      font-weight: 700;
+    }
+    .mini-card p { margin: 0; color: var(--muted); }
+
+    /* --- About Card --- */
     .about-card {
         padding: 40px;
+        background: var(--sage-hint); 
+        border: 1.5px solid var(--border); /* THE BORDER UPDATE */
         text-align: left;
         display: flex;
         gap: 40px;
@@ -206,10 +221,10 @@
         flex-wrap: wrap;
     }
 
-    /* --- Contact Form --- */
+    /* --- Contact Form (Solid Forest Green Anchor) --- */
     .contact-box {
-      max-width: 750px;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: 10px auto 0;
       padding: 50px;
       background: var(--accent);
       color: white;
@@ -235,13 +250,21 @@
     .form-group input, .form-group textarea {
       width: 100%;
       padding: 16px;
+      border: none;
       border-radius: 12px;
       background: white;
-      border: none;
       font-family: inherit;
     }
 
     .contact-box .btn-primary { background: white; color: var(--accent); width: 100%; }
+    .contact-box .btn-primary:hover { background: #f0f0f0; }
+
+    .contact-line {
+      margin-top: 30px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      text-align: center;
+    }
 
     /* --- Footer --- */
     footer {
@@ -301,7 +324,7 @@
           </div>
         </div>
 
-        <div class="card hero-side" style="overflow:hidden; padding:15px;">
+        <div class="card hero-side" style="overflow:hidden; padding:18px;">
           <img src="IMG_3803.jpeg" alt="Outdoor wedding ceremony setup" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
         </div>
       </div>
@@ -398,7 +421,7 @@
   </main>
 
   <footer class="wrap">
-    <span class="inclusivity-text">Seamless by Ashika is proud to work with couples of all backgrounds, cultures, faiths, and abilities.</span>
+    <span class="inclusivity-text">Celebrating love of all backgrounds, cultures, faiths, and abilities.</span>
     <span>© 2026 Seamless by Ashika. All rights reserved.</span>
   </footer>
 
