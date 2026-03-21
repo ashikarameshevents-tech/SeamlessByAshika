@@ -67,7 +67,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 0;
+      padding: 14px 0;
     }
 
     .brand { font-weight: 700; font-size: 1.3rem; }
@@ -93,22 +93,23 @@
     }
 
     .card:hover {
-      transform: translateY(-8px) scale(1.01);
+      transform: translateY(-5px) scale(1.005);
       box-shadow: 0 30px 60px rgba(44, 76, 59, 0.12);
       border-color: var(--accent);
       z-index: 10;
     }
 
     /* --- Section Spacing Tweak --- */
-    section { padding: 25px 0; } /* Reduced from 60px to tighten overall gaps */
+    section { padding: 30px 0; text-align: center; } /* Centers all headers and text globally */
 
     /* --- Hero Section --- */
-    .hero { padding: 40px 0 20px; } /* Lowered top and bottom padding specifically for Hero */
+    .hero { padding: 40px 0 20px; }
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 32px;
+      gap: 24px;
       align-items: stretch;
+      text-align: left; /* Keep Hero left-aligned for drama */
     }
 
     .hero-copy { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
@@ -119,7 +120,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       font-weight: 700;
     }
 
@@ -133,7 +134,7 @@
       font-size: 1.1rem;
       color: var(--muted);
       max-width: 44ch;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .rate-pill {
@@ -143,15 +144,14 @@
       background: var(--accent-soft);
       color: var(--accent-dark);
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin-bottom: 30px;
       width: fit-content;
     }
 
-    /* --- Buttons --- */
     .btn {
       display: inline-flex;
-      padding: 15px 28px;
+      padding: 14px 26px;
       border-radius: 999px;
       font-weight: 700;
       font-size: 1rem;
@@ -161,16 +161,15 @@
     }
 
     .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--accent-dark); }
     .btn-secondary { border-color: rgba(31,31,31,0.12); background: transparent; }
-    .btn-secondary:hover { border-color: var(--text); }
 
     .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* --- Header Spacing --- */
+    /* --- Section Headers --- */
     .section-title { 
-      font-size: 2.5rem; 
-      margin-bottom: 8px; /* Tightened from 16px */
+      font-size: 2.35rem; 
+      margin-bottom: 12px;
     }
     
     .section-text { 
@@ -183,6 +182,7 @@
     .grid-3, .grid-2 {
       display: grid;
       gap: 24px;
+      text-align: left;
     }
 
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
@@ -193,21 +193,28 @@
       padding: 32px; 
       background: var(--accent-soft); 
       border-color: rgba(44, 76, 59, 0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
     }
-    .mini-card h3 { font-size: 1.4rem; color: var(--accent-dark); }
-    .mini-card p { margin: 0; color: var(--muted); }
+    .mini-card h3 { font-size: 1.35rem; color: var(--accent-dark); margin-bottom: 8px; }
+
+    /* --- About Card Customization --- */
+    .about-card {
+        padding: 40px;
+        text-align: left;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
     /* --- Contact Form --- */
     .contact-box {
-      max-width: 800px;
-      margin: 10px auto 0;
+      max-width: 750px;
+      margin: 0 auto;
       padding: 50px;
       background: var(--accent);
       color: white;
       border: none;
+      text-align: left;
     }
 
     .contact-form {
@@ -222,27 +229,19 @@
       font-weight: 600;
       margin-bottom: 8px;
       font-size: 0.9rem;
+      color: white;
     }
 
     .form-group input, .form-group textarea {
       width: 100%;
       padding: 16px;
-      border: none;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.98);
+      background: white;
+      border: none;
       font-family: inherit;
-      font-size: 1rem;
     }
 
     .contact-box .btn-primary { background: white; color: var(--accent); width: 100%; }
-    .contact-box .btn-primary:hover { background: #f0f0f0; }
-
-    .contact-line {
-      margin-top: 30px;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.95rem;
-      text-align: center;
-    }
 
     /* --- Footer --- */
     footer {
@@ -262,8 +261,8 @@
     }
 
     @media (max-width: 840px) {
-      .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
-      .hero-copy, .contact-box { padding: 32px; }
+      .hero-grid, .grid-3, .grid-2, .about-card { grid-template-columns: 1fr; }
+      .hero-copy, .contact-box, .about-card { padding: 32px; }
       .hero { padding: 30px 0; }
       section { padding: 20px 0; }
       .nav { flex-direction: column; align-items: flex-start; }
@@ -302,7 +301,7 @@
           </div>
         </div>
 
-        <div class="card hero-side" style="overflow:hidden; padding:18px;">
+        <div class="card hero-side" style="overflow:hidden; padding:15px;">
           <img src="IMG_3803.jpeg" alt="Outdoor wedding ceremony setup" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
         </div>
       </div>
@@ -310,9 +309,9 @@
 
     <section id="about" class="wrap">
       <h2 class="section-title">About</h2>
-      <div style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+      <div class="card about-card">
         <div style="flex: 1; min-width: 300px;">
-          <p class="section-text" style="margin: 0; text-align: left;">
+          <p style="margin: 0; font-size: 1.05rem; color: var(--text);">
             Hi, I’m Ashika. I bring a unique blend of global perspective and New York energy to wedding coordination. My journey into this industry started with a deeply personal experience: planning my own wedding. While I found the planning process incredibly rewarding, on the actual day, much of my vision was not translated the way I had hoped—a feeling I never want another bride to experience. Drawing from my background in corporate strategy and operations, I now specialize in bringing high-level structure, calm communication, and flawless execution to complex wedding days.
           </p>
         </div>
@@ -322,7 +321,7 @@
       </div>
     </section>
 
-    <section id="services" class="wrap" style="text-align: center;">
+    <section id="services" class="wrap">
       <h2 class="section-title">What I Handle</h2>
       <p class="section-text">
         I step in as your day-of coordinator to manage the moving pieces and keep everything flowing perfectly.
@@ -343,7 +342,7 @@
       </div>
     </section>
 
-    <section id="whyme" class="wrap" style="text-align: center;">
+    <section id="whyme" class="wrap">
       <h2 class="section-title">Why Me</h2>
       <div class="grid-2">
         <div class="card mini-card">
@@ -364,9 +363,9 @@
     </section>
 
     <section id="contact" class="wrap">
+      <h2 class="section-title">Let’s Talk About Your Day</h2>
       <div class="card contact-box">
-        <h2 class="section-title" style="text-align: center;">Let’s Talk About Your Day</h2>
-        <p style="text-align: center; margin: 0 auto 16px; opacity: 0.9;">
+        <p style="text-align: center; margin: 0 auto 16px; opacity: 0.9; color: white;">
           I’m currently available for coordination and day-of management in the NYC/NJ area. Fill out the form below to check availability for your date.
         </p>
 
