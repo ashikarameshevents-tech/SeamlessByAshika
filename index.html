@@ -20,7 +20,7 @@
       --accent-dark: #1a3024;
       --accent-soft: #f0f4f2; 
       --sage-hint: #e9eee6; /* Pale sage hint for card backgrounds */
-      --border: rgba(44, 76, 59, 0.15); /* More defined sage border */
+      --border: rgba(44, 76, 59, 0.15); /* Faint defined sage border */
       --shadow: 0 18px 50px rgba(45, 31, 27, 0.08);
       --radius: 24px;
       --max: 1100px;
@@ -100,8 +100,8 @@
       z-index: 10;
     }
 
-    /* --- Section Spacing --- */
-    section { padding: 30px 0; text-align: center; }
+    /* --- Section Spacing Tighter Rhythm --- */
+    section { padding: 30px 0; text-align: center; } 
 
     /* --- Hero Section --- */
     .hero { padding: 40px 0 20px; }
@@ -150,6 +150,7 @@
       width: fit-content;
     }
 
+    /* --- Buttons General --- */
     .btn {
       display: inline-flex;
       padding: 15px 28px;
@@ -164,12 +165,13 @@
     .btn-primary { background: var(--accent); color: white; }
     .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
     .btn-secondary { border-color: rgba(31,31,31,0.12); background: transparent; }
+    .btn-secondary:hover { border-color: var(--text); }
 
     .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* --- Section Headers --- */
+    /* --- Section headers --- */
     .section-title { 
-      font-size: 2.5rem; 
+      font-size: 2.35rem; 
       margin-bottom: 12px;
     }
     
@@ -193,13 +195,13 @@
     .mini-card { 
       padding: 32px; 
       background: var(--sage-hint); 
-      border: 1.5px solid var(--border); /* THE BORDER UPDATE */
+      border: 1.5px solid var(--border);
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    /* THE EDITORIAL HEADING UPDATE */
+    /* Editorial uppercase headings for value cards */
     .mini-card h3 { 
       font-size: 1.1rem; 
       text-transform: uppercase; 
@@ -213,7 +215,7 @@
     .about-card {
         padding: 40px;
         background: var(--sage-hint); 
-        border: 1.5px solid var(--border); /* THE BORDER UPDATE */
+        border: 1.5px solid var(--border);
         text-align: left;
         display: flex;
         gap: 40px;
@@ -221,12 +223,12 @@
         flex-wrap: wrap;
     }
 
-    /* --- Contact Form (Solid Forest Green Anchor) --- */
+    /* --- Contact Form (THE POP AND CENTER UPDATES) --- */
     .contact-box {
       max-width: 800px;
       margin: 10px auto 0;
       padding: 50px;
-      background: var(--accent);
+      background: var(--accent); /* Dark forest green anchor */
       color: white;
       border: none;
       text-align: left;
@@ -252,12 +254,32 @@
       padding: 16px;
       border: none;
       border-radius: 12px;
-      background: white;
+      background: rgba(255, 255, 255, 0.98); /* Clean white inputs against dark green */
       font-family: inherit;
     }
 
-    .contact-box .btn-primary { background: white; color: var(--accent); width: 100%; }
-    .contact-box .btn-primary:hover { background: #f0f0f0; }
+    /* SPECIFIC POP AND CENTER OVERRIDES FOR THE INQUIRE BUTTON */
+    .contact-box .btn-primary { 
+        /* 1. Address Pop: Warm, rich ivory that ties into the background gradient */
+        background: #FEF9F3; 
+        color: var(--accent); /* Forest green text */
+
+        /* 2. Address Centering */
+        width: auto; /* Shrink to fit text */
+        align-self: center; /* Center horizontally in the flex container */
+        
+        /* 3. Increase padding for editorial look when smaller */
+        padding: 16px 40px;
+        
+        /* 4. Increase Pop: Specific refined shadow for dark section lift */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+    }
+
+    .contact-box .btn-primary:hover { 
+        background: white; /* Brighten on hover */
+        transform: translateY(-2px); /* Slight lift */
+        box-shadow: 0 15px 35px rgba(0,0,0,0.25); /* Deepen shadow */
+    }
 
     .contact-line {
       margin-top: 30px;
@@ -324,7 +346,7 @@
           </div>
         </div>
 
-        <div class="card hero-side" style="overflow:hidden; padding:18px;">
+        <div class="card hero-side" style="overflow:hidden; padding:15px;">
           <img src="IMG_3803.jpeg" alt="Outdoor wedding ceremony setup" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
         </div>
       </div>
