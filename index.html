@@ -158,6 +158,9 @@
       border-radius: 999px;
       border: 1px solid transparent;
       font-weight: 700;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
       transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
@@ -240,16 +243,57 @@
     }
 
     .contact-box {
-      padding: 28px;
+      padding: 42px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* --- Form Styles --- */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .form-group input, 
+    .form-group textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid rgba(31,31,31,0.2);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.6);
+      transition: border-color 0.2s ease, outline 0.2s ease;
+    }
+
+    .form-group input:focus, 
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+
+    .form-group textarea {
+      resize: vertical;
     }
 
     .contact-line {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 16px;
+      margin-top: 24px;
       color: var(--muted);
       font-size: 0.95rem;
+      justify-content: center;
     }
 
     footer {
@@ -259,13 +303,14 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      text-align: center;
     }
 
     .inclusivity-text {
-        font-family: "Cormorant Garamond", Georgia, serif;
-        font-style: italic;
-        color: var(--accent);
-        font-size: 1.1rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      color: var(--accent);
+      font-size: 1.1rem;
     }
 
     @media (max-width: 840px) {
@@ -277,7 +322,7 @@
         padding-top: 34px;
       }
 
-      .hero-copy, .hero-side {
+      .hero-copy, .hero-side, .contact-box {
         padding: 24px;
       }
 
@@ -391,13 +436,35 @@
 
     <section id="contact">
       <div class="card contact-box">
-        <h2 class="section-title">Let’s Talk About Your Day</h2>
-        <p class="section-text">
-          I’m currently available for coordination and day-of management in the NYC/NJ area. Send me an email to check availability for your date.
+        <h2 class="section-title" style="text-align: center;">Let’s Talk About Your Day</h2>
+        <p class="section-text" style="text-align: center; margin: 0 auto 24px;">
+          I’m currently available for coordination and day-of management in the NYC/NJ area. Fill out the form below to check availability for your date.
         </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:ashikarameshevents@gmail.com">Inquire Now</a>
-        </div>
+        
+        <form action="https://formspree.io/f/xbdzeyka" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your First & Last Name">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="date">Wedding Date & Location (Optional)</label>
+            <input type="text" id="date" name="date" placeholder="e.g. October 12, 2026 at Brooklyn Botanic Garden">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell me a little bit about your wedding vision..."></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Send Inquiry</button>
+        </form>
+
         <div class="contact-line">
           <span>Available for NYC/NJ weddings</span>
         </div>
